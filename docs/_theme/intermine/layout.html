@@ -7,6 +7,15 @@
 {%- block extrahead -%}
 <!-- syntax highlighting -->
 <link href="{{ pathto("_static/pygments/radek.css", 1) }}" rel="stylesheet">
+{% if pagename == "index" %}
+    {% set canonical_page = "" %}
+{% elif pagename.endswith("/index") %}
+    {% set canonical_page = pagename[:-("/index"|length)] + "/" %}
+{% else %}
+    {% set ending = "/" if ((builder == "readthedocsdirhtml") or (builder == "dirhtml")) else ".html" %}
+    {% set canonical_page = pagename + ending %}
+{% endif %}
+<link rel="canonical" href="http://intermine.readthedocs.org/en/latest/{{ canonical_url }}{{ canonical_page }}" />
 {%- endblock -%}
 
 {# put the sidebar before the body #}
