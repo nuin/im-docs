@@ -88,7 +88,7 @@ This occurs when the number of connections to a database exceeds the maximum con
 
 .. code-block:: java
 
-	max_connections = 100
+	max_connections = 300
 
 If you still experience this problem, restart Postgres.
 
